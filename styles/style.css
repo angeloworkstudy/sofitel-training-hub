@@ -1,0 +1,793 @@
+/* ========================================
+   SOFITEL TRAINING HUB - STYLES OPTIMISÉS
+   Design System Sofitel Gold & Navy
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* PALETTE SOFITEL OPTIMISÉE POUR LISIBILITÉ */
+    --primary-50: #fefce8;
+    --primary-100: #fef3c7;
+    --primary-500: #b8860b;
+    --primary-600: #b8860b;
+    --primary-700: #9a7209;
+    --primary-800: #854d0e;
+    
+    /* Navy et Slate */
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+    
+    /* Couleurs sémantiques */
+    --emerald-500: #10b981;
+    --emerald-100: #d1fae5;
+    --amber-500: #f59e0b;
+    --amber-100: #fef3c7;
+    --red-500: #ef4444;
+    --red-100: #fee2e2;
+    
+    /* BACKGROUND OPTIMISÉ - Plus subtil et lisible */
+    --gradient-primary: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+    --gradient-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 30%, #fef3c7 100%);
+    --gradient-success: linear-gradient(135deg, var(--emerald-500) 0%, #059669 100%);
+    --gradient-glass: rgba(255, 255, 255, 0.95);
+    
+    /* Ombres optimisées */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Radius et spacing */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    
+    /* Typography */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    
+    /* Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Masquer éléments Streamlit */
+#MainMenu, footer, header, .stDeployButton {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+/* App container avec background clair et lisible */
+.stApp {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+    color: var(--slate-800);
+    overflow-x: hidden;
+}
+
+/* Container principal responsif */
+.main .block-container {
+    padding: var(--space-6) var(--space-4);
+    max-width: 100vw !important;
+    overflow-x: hidden;
+}
+
+/* Sidebar avec fond blanc pour contraste */
+.css-1d391kg {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-right: 2px solid var(--primary-600);
+    box-shadow: var(--shadow-xl);
+    width: 280px !important;
+    min-width: 280px;
+    transition: var(--transition);
+}
+
+/* Cards avec fond blanc pur pour lisibilité */
+.modern-card {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid rgba(184, 134, 11, 0.3);
+    transition: var(--transition);
+    margin-bottom: var(--space-4);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.modern-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-600);
+}
+
+/* Headers de section avec fond blanc */
+.section-header {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: var(--space-8) 0 var(--space-6) 0;
+    box-shadow: var(--shadow-lg);
+    border-left: 6px solid var(--primary-600);
+    overflow: hidden;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: var(--slate-800);
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+/* Boutons avec style doré Sofitel */
+.stButton > button {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-6);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.stButton > button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: var(--transition);
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-800) 100%);
+}
+
+.stButton > button:hover::before {
+    left: 100%;
+}
+
+/* Formulaires avec focus doré */
+.stTextInput > div > div > input,
+.stSelectbox > div > div > select,
+.stTextArea > div > div > textarea,
+.stNumberInput > div > div > input,
+.stDateInput > div > div > input {
+    border-radius: var(--radius);
+    border: 2px solid var(--slate-300);
+    padding: var(--space-3);
+    font-size: var(--text-sm);
+    transition: var(--transition);
+    background: white;
+    font-family: 'Inter', sans-serif;
+    width: 100% !important;
+    box-sizing: border-box;
+    color: var(--slate-800);
+}
+
+.stTextInput > div > div > input:focus,
+.stSelectbox > div > div > select:focus,
+.stTextArea > div > div > textarea:focus,
+.stNumberInput > div > div > input:focus,
+.stDateInput > div > div > input:focus {
+    border-color: var(--primary-600);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+    outline: none;
+    background: var(--primary-50);
+}
+
+/* Labels avec meilleur contraste */
+.stTextInput > label,
+.stSelectbox > label,
+.stTextArea > label,
+.stNumberInput > label,
+.stDateInput > label,
+.stMultiSelect > label {
+    color: var(--slate-700) !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Placeholders */
+.stTextInput > div > div > input::placeholder,
+.stTextArea > div > div > textarea::placeholder {
+    color: var(--slate-500);
+    font-style: italic;
+}
+
+/* Onglets avec fond blanc */
+.stTabs [data-baseweb="tab-list"] {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--slate-200);
+    gap: var(--space-2);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: transparent;
+    border-radius: var(--radius);
+    color: var(--slate-700);
+    font-weight: 500;
+    padding: var(--space-3) var(--space-6);
+    transition: var(--transition);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    font-size: var(--text-sm);
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: var(--slate-100);
+    color: var(--slate-800);
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    box-shadow: var(--shadow);
+    font-weight: 600;
+}
+
+/* DATAFRAMES avec correction débordement et fond blanc */
+.stDataFrame {
+    border-radius: var(--radius-lg);
+    overflow: hidden !important;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--slate-200);
+    background: white;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: var(--space-4) 0;
+}
+
+.stDataFrame > div {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative;
+    background: white;
+}
+
+.stDataFrame table {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    width: 100% !important;
+    border-collapse: collapse;
+    margin: 0;
+    background: white;
+}
+
+.stDataFrame thead th {
+    background: var(--primary-50);
+    color: var(--slate-800);
+    font-weight: 700;
+    padding: var(--space-3) var(--space-2);
+    border-bottom: 3px solid var(--primary-600);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    min-width: 80px;
+    max-width: 200px;
+}
+
+.stDataFrame tbody td {
+    padding: var(--space-3) var(--space-2);
+    border-bottom: 1px solid var(--slate-200);
+    color: var(--slate-800);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 80px;
+    max-width: 200px;
+    background: white;
+}
+
+.stDataFrame tbody tr:hover {
+    background: var(--primary-50) !important;
+}
+
+.stDataFrame tbody tr:nth-child(even) {
+    background: var(--slate-50);
+}
+
+.stDataFrame tbody tr:nth-child(even):hover {
+    background: var(--primary-50) !important;
+}
+
+/* Force DataFrames à respecter container */
+div[data-testid="stDataFrame"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stDataFrame"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+}
+
+/* Scrollbar DataFrames avec accent doré */
+.stDataFrame::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.stDataFrame::-webkit-scrollbar-track {
+    background: var(--slate-100);
+    border-radius: 4px;
+}
+
+.stDataFrame::-webkit-scrollbar-thumb {
+    background: var(--primary-600);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.stDataFrame::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-700);
+}
+
+/* Messages de statut avec meilleur contraste */
+.stSuccess {
+    background: var(--emerald-100);
+    border: 2px solid var(--emerald-500);
+    border-radius: var(--radius-lg);
+    color: var(--emerald-500);
+    padding: var(--space-4);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.stError {
+    background: var(--red-100);
+    border: 2px solid var(--red-500);
+    border-radius: var(--radius-lg);
+    color: var(--red-500);
+    padding: var(--space-4);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.stInfo {
+    background: var(--primary-50);
+    border: 2px solid var(--primary-600);
+    border-radius: var(--radius-lg);
+    color: var(--primary-700);
+    padding: var(--space-4);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.stWarning {
+    background: var(--amber-100);
+    border: 2px solid var(--amber-500);
+    border-radius: var(--radius-lg);
+    color: var(--amber-500);
+    padding: var(--space-4);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Employee cards avec fond blanc */
+.employee-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--slate-200);
+    margin: var(--space-4) 0;
+    transition: var(--transition);
+    width: 100%;
+    overflow: hidden;
+}
+
+.employee-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+    border-color: var(--primary-600);
+}
+
+/* Avatar avec couleurs Sofitel */
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-right: var(--space-4);
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Status badges avec meilleur contraste */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.status-valide {
+    background: var(--emerald-500);
+    color: white;
+    border: 2px solid var(--emerald-500);
+}
+
+.status-absent {
+    background: var(--red-500);
+    color: white;
+    border: 2px solid var(--red-500);
+}
+
+.status-badge:hover {
+    transform: scale(1.05);
+}
+
+/* Métriques avec fond blanc */
+[data-testid="metric-container"] {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    border-left: 6px solid var(--primary-600);
+    transition: var(--transition);
+    backdrop-filter: blur(20px);
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+[data-testid="metric-container"] [data-testid="metric-value"] {
+    color: var(--slate-800) !important;
+    font-weight: 800;
+    font-size: var(--text-2xl);
+}
+
+[data-testid="metric-container"] [data-testid="metric-label"] {
+    color: var(--slate-700) !important;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Expanders avec fond blanc */
+.stExpander {
+    border: 2px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    background: white;
+    width: 100%;
+}
+
+.stExpander:hover {
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-600);
+}
+
+.stExpander > div:first-child {
+    background: var(--primary-50);
+    padding: var(--space-4);
+    font-weight: 600;
+    color: var(--slate-800);
+    border-bottom: 2px solid var(--slate-200);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-sm);
+}
+
+.stExpander > div:last-child {
+    padding: var(--space-4);
+    background: white;
+}
+
+/* Download buttons */
+.stDownloadButton > button {
+    background: var(--gradient-success);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-6);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.stDownloadButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .css-1d391kg {
+        width: 250px !important;
+        min-width: 250px;
+    }
+    
+    .main .block-container {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+    
+    .modern-card, .section-header {
+        padding: var(--space-4);
+    }
+}
+
+@media (max-width: 768px) {
+    .main .block-container {
+        padding: var(--space-4) var(--space-2);
+    }
+    
+    .modern-card, .section-header {
+        padding: var(--space-3);
+    }
+    
+    .section-header h2 {
+        font-size: var(--text-lg);
+    }
+    
+    .avatar {
+        width: 48px;
+        height: 48px;
+        font-size: var(--text-lg);
+    }
+    
+    .css-ocqkz7 {
+        flex-direction: column !important;
+    }
+    
+    .css-ocqkz7 > div {
+        width: 100% !important;
+        margin-bottom: var(--space-3);
+    }
+    
+    .css-1d391kg {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-xs);
+    }
+    
+    .stDataFrame {
+        font-size: var(--text-xs);
+    }
+    
+    .stDataFrame table {
+        min-width: 600px;
+    }
+    
+    .stDataFrame thead th,
+    .stDataFrame tbody td {
+        padding: var(--space-1) var(--space-2);
+        max-width: 120px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main .block-container {
+        padding: var(--space-2);
+    }
+    
+    .modern-card, .section-header {
+        padding: var(--space-2);
+    }
+    
+    .stButton > button {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-xs);
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        font-size: var(--text-base);
+        margin-right: var(--space-2);
+    }
+    
+    .stDataFrame thead th,
+    .stDataFrame tbody td {
+        padding: 0.25rem 0.5rem;
+        max-width: 100px;
+        font-size: 0.65rem;
+        min-width: 60px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.stApp > div {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.css-1d391kg {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.modern-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Scrollbar avec accent doré */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--slate-100);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-600);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-700);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-600) var(--slate-100);
+}
+
+/* Utility classes */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.w-full { width: 100%; }
+.text-center { text-align: center; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .grid-auto {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+}
+
+@media print {
+    .stApp {
+        background: white !important;
+    }
+    
+    .modern-card, .employee-card, .section-header {
+        box-shadow: none !important;
+        border: 1px solid var(--slate-300) !important;
+    }
+    
+    .stButton, .css-1d391kg {
+        display: none !important;
+    }
+}
