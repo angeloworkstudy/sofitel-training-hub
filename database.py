@@ -2,14 +2,16 @@
 import sqlite3
 import os
 
-# 📍 Chemin vers la base de données
-DB_PATH = "C:/Users/ASUS/Desktop/Projet_SOFITEL/data/sofitel.db"
+# 📍 Utilise un chemin relatif pour que ça fonctionne en ligne
+DB_PATH = os.path.join("data", "sofitel.db")
 
-# 🔄 Fonction de connexion à la base
+# 🔄 Connexion en lecture seule (mode=ro) pour hébergement Streamlit Cloud
 def get_connection():
-    conn = sqlite3.connect(DB_PATH)
-    conn.execute("PRAGMA foreign_keys = ON")  # 🔐 Active les contraintes de clé étrangère
+    uri = f"file:{DB_PATH}?mode=ro"
+    conn = sqlite3.connect(uri, uri=True)
+    conn.execute("PRAGMA foreign_keys = ON")  # 🔐 Active les clés étrangères (utile même en lecture)
     return conn
+
 
 # 🔧 Création des tables si elles n'existent pas
 def create_tables():
