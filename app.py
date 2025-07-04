@@ -1,5 +1,5 @@
 import streamlit as st
-from database import create_tables
+#from database import create_tables
 import pandas as pd
 import datetime
 import plotly.express as px
@@ -21,7 +21,7 @@ with open('styles/style.css') as f:
 
 
 # Créer les tables au lancement
-create_tables()
+#create_tables()
 
 # Header moderne
 st.markdown("""
